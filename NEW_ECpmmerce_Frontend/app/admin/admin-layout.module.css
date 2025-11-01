@@ -1,0 +1,191 @@
+:root {
+  --color-dark: #333333;
+  --color-border: #cbcac7;
+  --color-bg: #faf7f6;
+  --color-tint: #e3ded7;
+  --color-accent: #285570;
+}
+
+/* ================= Layout ================= */
+.container {
+  display: flex;
+  height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+.contentInner {
+  padding: 2rem;
+}
+
+/* ================= Header ================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: var(--color-dark);
+}
+
+/* ================= Add Button ================= */
+/* Enhanced button styling with theme colors */
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-accent);
+  color: #fff;
+  padding: 0.6rem 1.25rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.addButton:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+  box-shadow: 0 4px 12px rgba(40, 85, 112, 0.2);
+}
+
+.addButton svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* ================= Loader ================= */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24rem;
+}
+
+.loaderIcon {
+  width: 2rem;
+  height: 2rem;
+  animation: spin 1s linear infinite;
+  color: var(--color-accent);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================= Table ================= */
+.table {
+  background-color: var(--color-bg);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background-color: var(--color-tint);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table th {
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.table tbody tr {
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.25s ease;
+}
+
+.table tbody tr:hover {
+  background-color: var(--color-tint);
+}
+
+.table td {
+  padding: 0.75rem 1.5rem;
+  color: var(--color-dark);
+}
+
+/* ================= Empty State ================= */
+.emptyState {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: var(--color-dark);
+  background-color: var(--color-bg);
+  border-radius: 0.5rem;
+  opacity: 0.7;
+}
+
+/* Added responsive design for mobile admin */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .contentInner {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .addButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contentInner {
+    padding: 0.75rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .addButton {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .table {
+    font-size: 0.75rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.4rem 0.75rem;
+  }
+}

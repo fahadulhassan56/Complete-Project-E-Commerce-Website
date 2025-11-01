@@ -1,0 +1,277 @@
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.emptyContainer {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #285570;
+}
+
+.emptyText {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.continueButton {
+  display: inline-block;
+  background-color: #285570;
+  color: #faf7f6;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.continueButton:hover {
+  background-color: #333333;
+  transform: translateY(-2px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.itemsSection {
+  grid-column: span 1;
+}
+
+@media (min-width: 1024px) {
+  .itemsSection {
+    grid-column: span 2;
+  }
+}
+
+.summarySection {
+  grid-column: span 1;
+}
+
+/* ===== Items List ===== */
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cartItem {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #cbcac7;
+  border-radius: 0.75rem;
+  background-color: #faf7f6;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cartItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(40, 85, 112, 0.1);
+}
+
+.itemImage {
+  width: 6rem;
+  height: 6rem;
+  background-color: #e3ded7;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.itemImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.itemDetails {
+  flex: 1;
+}
+
+.itemTitle {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #333333;
+}
+
+.itemVariant {
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.itemPrice {
+  color: #285570;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* ===== Item Actions ===== */
+.itemActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantityButton {
+  padding: 0.25rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-radius: 0.25rem;
+  color: #285570;
+}
+
+.quantityButton:hover {
+  background-color: #e3ded7;
+}
+
+.quantityButton svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.quantity {
+  width: 1.5rem;
+  text-align: center;
+  color: #333333;
+}
+
+.deleteButton {
+  color: #c53030;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.deleteButton:hover {
+  color: #9b2c2c;
+}
+
+.deleteButton svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* ===== Summary Section ===== */
+.summary {
+  background-color: #e3ded7;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  position: sticky;
+  top: 5rem;
+  border: 1px solid #cbcac7;
+  box-shadow: 0 2px 8px rgba(40, 85, 112, 0.08);
+}
+
+.summaryTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #285570;
+}
+
+.summaryDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #cbcac7;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+}
+
+.summaryLabel {
+  color: #555;
+}
+
+.summaryValue {
+  font-weight: 600;
+  color: #333333;
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #285570;
+}
+
+.summaryTotalAmount {
+  color: #285570;
+}
+
+/* ===== Buttons ===== */
+.checkoutButton {
+  display: block;
+  width: 100%;
+  background-color: #285570;
+  color: #faf7f6;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-bottom: 0.75rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(40, 85, 112, 0.15);
+}
+
+.checkoutButton:hover {
+  background-color: #333333;
+  transform: translateY(-2px);
+}
+
+.continueShoppingButton {
+  display: block;
+  width: 100%;
+  border: 1px solid #cbcac7;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  background-color: transparent;
+  color: #333333;
+  transition: all 0.3s ease;
+}
+
+.continueShoppingButton:hover {
+  background-color: #faf7f6;
+  transform: translateY(-2px);
+}

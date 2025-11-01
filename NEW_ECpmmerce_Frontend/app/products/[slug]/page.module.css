@@ -1,0 +1,462 @@
+/* =======================================
+   ✨ Product Detail Page Styling
+   Premium eCommerce Design
+   ======================================= */
+
+:root {
+  --color-primary: #285570;
+  --color-bg: #faf7f6;
+  --color-light: #e3ded7;
+  --color-muted: #cbcac7;
+  --color-dark: #333333;
+  --color-white: #ffffff;
+  --color-accent: #d4a574;
+  --transition: all 0.4s ease;
+}
+
+/* ===== Container ===== */
+.container {
+  background: linear-gradient(to bottom, var(--color-bg), var(--color-light));
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* ===== Back Link ===== */
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.backLink:hover {
+  color: var(--color-accent);
+  transform: translateX(-4px);
+}
+
+/* ===== Main Grid Layout ===== */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--color-white);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(40, 85, 112, 0.1);
+}
+
+/* ===== Image Container ===== */
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-light) 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 500px;
+  position: sticky;
+  top: 20px;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.imageContainer:hover img {
+  transform: scale(1.05);
+}
+
+/* ===== Details Section ===== */
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+/* ===== Title ===== */
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* ===== Description ===== */
+.description {
+  font-size: 1rem;
+  color: var(--color-dark);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== Price Section ===== */
+.priceSection {
+  background: linear-gradient(135deg, rgba(40, 85, 112, 0.05) 0%, rgba(212, 165, 116, 0.05) 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--color-primary);
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.stock {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* ===== Variant Section ===== */
+.variantSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.variantTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin: 0;
+}
+
+.variantList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.variantButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 2px solid var(--color-muted);
+  border-radius: 8px;
+  background: var(--color-white);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.95rem;
+}
+
+.variantButton:hover {
+  border-color: var(--color-primary);
+  background: rgba(40, 85, 112, 0.05);
+}
+
+.variantButtonActive {
+  border-color: var(--color-primary);
+  background: linear-gradient(135deg, rgba(40, 85, 112, 0.1) 0%, rgba(212, 165, 116, 0.1) 100%);
+}
+
+.variantName {
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.variantPrice {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* ===== Quantity Section ===== */
+.quantitySection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.quantityTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin: 0;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-bg);
+  border-radius: 8px;
+  padding: 0.5rem;
+  width: fit-content;
+}
+
+.quantityButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: var(--color-white);
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--color-primary);
+  transition: var(--transition);
+  font-weight: 600;
+}
+
+.quantityButton:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  transform: scale(1.05);
+}
+
+.quantity {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  min-width: 30px;
+  text-align: center;
+}
+
+/* ===== Actions Section ===== */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.addToCartButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1e3f52 100%);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(40, 85, 112, 0.3);
+}
+
+.addToCartButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(40, 85, 112, 0.4);
+}
+
+.addToCartButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.checkoutLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: var(--color-white);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.checkoutLink:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* ===== Loader ===== */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.loaderIcon {
+  width: 50px;
+  height: 50px;
+  color: var(--color-primary);
+  animation: spin 1s linear infinite;
+}
+
+/* ===== Error State ===== */
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.errorText {
+  font-size: 1.2rem;
+  color: var(--color-dark);
+  margin: 0;
+}
+
+.errorLink {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.errorLink:hover {
+  background: #1e3f52;
+  transform: translateY(-2px);
+}
+
+/* ===== Animations ===== */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .imageContainer {
+    min-height: 400px;
+    position: static;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .grid {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .imageContainer {
+    min-height: 300px;
+    border-radius: 10px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+
+  .variantButton {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .addToCartButton,
+  .checkoutLink {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  .backLink {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .grid {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .imageContainer {
+    min-height: 250px;
+    border-radius: 8px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .price {
+    font-size: 1.3rem;
+  }
+
+  .priceSection {
+    padding: 1rem;
+  }
+
+  .variantButton {
+    padding: 0.65rem;
+    font-size: 0.85rem;
+  }
+
+  .quantityControls {
+    gap: 0.75rem;
+  }
+
+  .quantityButton {
+    width: 36px;
+    height: 36px;
+  }
+
+  .addToCartButton,
+  .checkoutLink {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .actions {
+    gap: 0.75rem;
+  }
+}

@@ -1,0 +1,193 @@
+/* =============================
+   🌿 Dashboard Overview Layout
+   Responsive Admin Dashboard
+============================= */
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.contentInner {
+  padding: 2.5rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+/* =============================
+   🏷 Titles
+============================= */
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: var(--muted-foreground);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* =============================
+   🧩 Grid Layout - Responsive
+============================= */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =============================
+   💳 Card Design
+============================= */
+.card {
+  background-color: #fff;
+  padding: 1.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(40, 85, 112, 0.15);
+}
+
+/* =============================
+   🧾 Card Text
+============================= */
+.cardLabel {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 0.5rem;
+}
+
+.cardValue {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* =============================
+   ⏳ Loader
+============================= */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--background);
+}
+
+.loaderIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  animation: spin 1s linear infinite;
+  color: var(--accent);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =============================
+   📱 Responsive Design
+============================= */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .contentInner {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .grid {
+    gap: 1.25rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .cardLabel {
+    font-size: 0.85rem;
+  }
+
+  .cardValue {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contentInner {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .cardLabel {
+    font-size: 0.8rem;
+  }
+
+  .cardValue {
+    font-size: 1.3rem;
+  }
+}

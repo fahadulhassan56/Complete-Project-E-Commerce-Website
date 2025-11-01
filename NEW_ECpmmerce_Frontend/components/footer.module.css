@@ -1,0 +1,157 @@
+/* =======================================
+   🌿 Elegant Footer Section
+   Matching Neutral + Deep Blue Theme
+   ======================================= */
+
+:root {
+  --color-primary: #285570;
+  --color-bg: #faf7f6;
+  --color-light: #e3ded7;
+  --color-muted: #cbcac7;
+  --color-dark: #333333;
+  --color-white: #ffffff;
+  --transition: all 0.3s ease;
+}
+
+/* ===== Footer Base ===== */
+.footer {
+  background: linear-gradient(to bottom, var(--color-bg), var(--color-light));
+  color: var(--color-dark);
+  padding: 4rem 2rem 2rem;
+  border-top: 1px solid var(--color-muted);
+  margin-top: auto;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== Grid Layout ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ===== Footer Columns ===== */
+.column h3,
+.column h4 {
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.column p {
+  font-size: 0.95rem;
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+/* ===== Links ===== */
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkList li {
+  margin-bottom: 0.6rem;
+}
+
+.linkList a {
+  color: var(--color-dark);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  position: relative;
+}
+
+.linkList a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1.5px;
+  width: 0%;
+  background: var(--color-primary);
+  transition: var(--transition);
+}
+
+.linkList a:hover {
+  color: var(--color-primary);
+}
+
+.linkList a:hover::after {
+  width: 100%;
+}
+
+/* ===== Divider / Bottom Section ===== */
+.divider {
+  border-top: 1px solid var(--color-muted);
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.divider p {
+  font-size: 0.9rem;
+  color: var(--color-dark);
+}
+
+/* ===== Hover Effects ===== */
+.column h3:hover,
+.column h4:hover {
+  color: var(--color-dark);
+  transition: var(--transition);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .column h3,
+  .column h4 {
+    font-size: 1.1rem;
+  }
+
+  .linkList a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 1rem 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .column h3,
+  .column h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .column p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .linkList a {
+    font-size: 0.85rem;
+  }
+}
