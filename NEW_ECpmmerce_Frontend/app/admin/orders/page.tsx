@@ -15,7 +15,18 @@ export default function AdminOrdersPage() {
   const [updatingOrderId, setUpdatingOrderId] = useState<string | null>(null)
   const [selectedStatus, setSelectedStatus] = useState<string>("")
   const [showStatusModal, setShowStatusModal] = useState(false)
-  const [updatedOrders, setUpdatedOrders] = useState<string[]>([]) // ✅ new state
+  const [updatedOrders, setUpdatedOrders] = useState<string[]>([]) // ✅ stores permanently disabled order IDs
+
+  // ✅ Restore disabled orders from localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem("updatedOrders")
+    if (saved) setUpdatedOrders(JSON.parse(saved))
+  }, [])
+
+  // ✅ Save updatedOrders to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("updatedOrders", JSON.stringify(updatedOrders))
+  }, [updatedOrders])
 
   useEffect(() => {
     const adminToken = localStorage.getItem("adminToken")
@@ -31,7 +42,9 @@ export default function AdminOrdersPage() {
     try {
       setLoading(true)
       const response = await getAdminOrders(adminToken)
-      const ordersList = Array.isArray(response.data) ? response.data : response.data?.items || []
+      const ordersList = Array.isArray(response.data)
+        ? response.data
+        : response.data?.items || []
       setOrders(ordersList)
     } catch (err) {
       console.error(err)
@@ -52,12 +65,13 @@ export default function AdminOrdersPage() {
     try {
       const order = orders.find((o) => o.id === updatingOrderId)
       const orderNumber =
-        order?.orderNumber || `ORD-${new Date().toISOString().split("T")[0].replace(/-/g, "")}-${updatingOrderId}`
+        order?.orderNumber ||
+        `ORD-${new Date().toISOString().split("T")[0].replace(/-/g, "")}-${updatingOrderId}`
 
       await updateOrderStatus(token, updatingOrderId, selectedStatus, orderNumber)
 
-      // ✅ Disable further updates for this order
-      setUpdatedOrders((prev) => [...prev, updatingOrderId])
+      // ✅ Permanently disable this order after success
+      setUpdatedOrders((prev) => [...new Set([...prev, updatingOrderId])])
 
       setShowStatusModal(false)
       setUpdatingOrderId(null)
@@ -109,8 +123,8 @@ export default function AdminOrdersPage() {
                               order.status === "confirmed"
                                 ? styles.statusConfirmed
                                 : order.status === "cancelled"
-                                  ? styles.statusCancelled
-                                  : styles.statusPending
+                                ? styles.statusCancelled
+                                : styles.statusPending
                             }`}
                           >
                             {order.status}
@@ -119,9 +133,13 @@ export default function AdminOrdersPage() {
                         <td>PKR {order.totalAmount?.toLocaleString()}</td>
                         <td>
                           <button
-                            onClick={() => handleUpdateStatus(order.id, order.status)}
-                            className={styles.updateButton}
-                            disabled={isUpdated} // ✅ disable button if already updated
+                            onClick={() =>
+                              handleUpdateStatus(order.id, order.status)
+                            }
+                            className={`${styles.updateButton} ${
+                              isUpdated ? styles.disabledButton : ""
+                            }`}
+                            disabled={isUpdated} // ✅ permanently disabled
                           >
                             <AlertCircle />
                             {isUpdated ? "Updated" : "Update Status"}
@@ -144,7 +162,10 @@ export default function AdminOrdersPage() {
 
             <div className={styles.modalFormGroup}>
               <label>Select Status</label>
-              <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}>
+              <select
+                value={selectedStatus}
+                onChange={(e) => setSelectedStatus(e.target.value)}
+              >
                 <option value="">Choose a status...</option>
                 <option value="pending">Pending</option>
                 <option value="confirmed">Confirmed</option>
@@ -163,7 +184,11 @@ export default function AdminOrdersPage() {
               >
                 Cancel
               </button>
-              <button onClick={confirmStatusUpdate} disabled={!selectedStatus} className={styles.modalSubmitButton}>
+              <button
+                onClick={confirmStatusUpdate}
+                disabled={!selectedStatus}
+                className={styles.modalSubmitButton}
+              >
                 Update
               </button>
             </div>

@@ -263,3 +263,10 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.disabledButton {
+  background-color: #d1d5db !important;
+  color: #6b7280 !important;
+  cursor: not-allowed !important;
+  opacity: 0.7;
+}
