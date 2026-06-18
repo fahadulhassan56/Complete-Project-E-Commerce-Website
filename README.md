@@ -39,7 +39,7 @@ It supports authentication, product management, cart system, and order flow with
 
 ---
 
-## nstallation
+## Installation
 
 # Backend
 
