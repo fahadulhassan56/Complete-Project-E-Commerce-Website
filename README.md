@@ -41,6 +41,14 @@ It supports authentication, product management, cart system, and order flow with
 
 ## nstallation
 
+# Backend
+
+```bash
+cd backend
+npm install
+npm start
+
+# Frontend
 ```bash
 git clone
 cd
